@@ -1,0 +1,5 @@
+{
+    "require-dev": {
+        "phpspec/phpspec": "^4.3"
+    }
+}
