@@ -1,5 +1,8 @@
 {
     "require-dev": {
-        "phpspec/phpspec": "^4.3"
+        "phpspec/phpspec": "^5.0"
+    },
+    "require": {
+        "symfony/messenger": "^4.1"
     }
 }
