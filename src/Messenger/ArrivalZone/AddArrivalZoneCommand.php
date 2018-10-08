@@ -9,6 +9,7 @@
 namespace App\Messenger\ArrivalZone;
 
 
+
 class AddArrivalZoneCommand
 {
     /**
@@ -19,16 +20,11 @@ class AddArrivalZoneCommand
      * @var null|string
      */
     private $description;
-    /**
-     * @var integer
-     */
-    private $id_arrival;
 
-    public function __construct(string $name, ?string $description, string $id_arrival)
+    public function __construct(string $name, ?string $description)
     {
         $this->name = $name;
         $this->description = $description;
-        $this->id_arrival = $id_arrival;
     }
 
     /**
@@ -47,11 +43,4 @@ class AddArrivalZoneCommand
         return $this->description;
     }
 
-    /**
-     * @return null|string
-     */
-    public function getIdArrival(): ?string
-    {
-        return $this->id_arrival;
-    }
 }
