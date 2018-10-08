@@ -21,7 +21,7 @@ class AddArrivalZoneCommandHandler
      * @param AddArrivalZoneCommand $command
      * @return ArrivalZone
      */
-    
+
     public function __invoke(AddArrivalZoneCommand $command): ArrivalZone
     {
         $arrivalzone = new ArrivalZone();
