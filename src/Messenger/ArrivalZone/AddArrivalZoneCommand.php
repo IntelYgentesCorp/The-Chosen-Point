@@ -43,4 +43,6 @@ class AddArrivalZoneCommand
         return $this->description;
     }
 
+
+
 }

@@ -31,6 +31,6 @@ services:
     # please note that last definitions always *replace* previous ones
 
 
-App\Messenger\:
-    resource: '../src/Messenger/**/*Handler.php'
-    tags: [messenger.message_handler]
+    App\Messenger\:
+        resource: '../src/Messenger/**/*Handler.php'
+        tags: [messenger.message_handler]
