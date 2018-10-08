@@ -19,6 +19,16 @@ class ArrivalZoneRepository extends ServiceEntityRepository
         parent::__construct($registry, ArrivalZone::class);
     }
 
+
+    public function add(ArrivalZone $arrivalZone): void
+    {
+        $this->_em->persist($arrivalZone);
+    }
+
+    public function remove(ArrivalZone $arrivalZone): void
+    {
+        $this->_em->remove($arrivalZone);
+    }
 //    /**
 //     * @return ArrivalZone[] Returns an array of ArrivalZone objects
 //     */

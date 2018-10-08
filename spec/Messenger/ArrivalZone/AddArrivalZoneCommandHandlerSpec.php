@@ -1,6 +1,6 @@
 <?php
 
-namespace spec\App\ArrivalZone\Place;
+namespace spec\App\ArrivalZone\;
 
 
 use App\Entity\Place;
