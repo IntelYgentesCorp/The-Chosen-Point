@@ -30,6 +30,7 @@ class AddArrivalZoneCommandHandler
 
         $this->arrivalzoneRepository->add($arrivalzone);
 
+
         return $arrivalzone;
     }
 }
