@@ -1,6 +1,6 @@
 <?php
 
-namespace spec\App\ArrivalZone;
+namespace spec\App\Messenger\ArrivalZone;
 
 
 
@@ -19,19 +19,12 @@ use PhpSpec\ObjectBehavior;
             $this->beConstructedWith($arrivalZoneRepository);
         }
 
-        /**
-         * @param null
-         */
-        function it_is_initializable()
-        {
-            $this->shouldHaveType(AddArrivalZoneCommand::class);
-        }
 
         /**
          * @param ArrivalZoneRepository|\PhpSpec\Wrapper\Collaborator $arrivalZoneRepository
          * @param AddArrivalZoneCommand|\PhpSpec\Wrapper\Collaborator $command
          */
-        
+
         function it_saves_a_new_arrival_zone(ArrivalZoneRepository $arrivalZoneRepository,
                                              AddArrivalZoneCommand $command)
         {
@@ -43,7 +36,7 @@ use PhpSpec\ObjectBehavior;
 
             $arrivalZoneRepository->add($arrivalZone)->shouldBeCalled();
 
-            $this($command)->shouldBelike($arrivalZone);
+            $this($command)->shouldBeLike($arrivalZone);
 
         }
     }
