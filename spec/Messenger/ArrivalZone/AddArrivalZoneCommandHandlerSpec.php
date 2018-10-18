@@ -1,40 +1,42 @@
 <?php
 
-namespace spec\App\ArrivalZone\;
+namespace spec\App\Messenger\ArrivalZone;
 
 
-use App\Entity\Place;
-use App\Messenger\Place\AddPlaceCommand;
-use App\Messenger\Place\AddPlaceCommandHandler;
-use App\Repository\PlaceRepository;
+
+use App\Entity\ArrivalZone;
+use App\Messenger\ArrivalZone\AddArrivalZoneCommand;
+use App\Repository\ArrivalZoneRepository;
 use PhpSpec\ObjectBehavior;
-use Prophecy\Argument;
 
-class AddPlaceCommandHandlerSpec extends ObjectBehavior
-{
-    public function let(PlaceRepository $placeRepository)
+    class AddArrivalZoneCommandHandlerSpec extends ObjectBehavior
     {
-        $this->beConstructedWith($placeRepository);
+        /**
+         * @param \PhpSpec\Wrapper\Collaborator|ArrivalZoneRepository $arrivalZoneRepository
+         */
+        public function let(ArrivalZoneRepository $arrivalZoneRepository)
+        {
+            $this->beConstructedWith($arrivalZoneRepository);
+        }
+
+
+        /**
+         * @param ArrivalZoneRepository|\PhpSpec\Wrapper\Collaborator $arrivalZoneRepository
+         * @param AddArrivalZoneCommand|\PhpSpec\Wrapper\Collaborator $command
+         */
+
+        function it_saves_a_new_arrival_zone(ArrivalZoneRepository $arrivalZoneRepository,
+                                             AddArrivalZoneCommand $command)
+        {
+            $command->getName()->willReturn('Renfe')->shouldBeCalled();
+            $command->getDescription()->willReturn(null)->shouldBeCalled();
+
+            $arrivalZone = new ArrivalZone();
+            $arrivalZone->setName('Renfe');
+
+            $arrivalZoneRepository->add($arrivalZone)->shouldBeCalled();
+
+            $this($command)->shouldBeLike($arrivalZone);
+
+        }
     }
-
-    function it_is_initializable()
-    {
-        $this->shouldHaveType(AddPlaceCommandHandler::class);
-    }
-
-    function it_saves_a_new_place(
-        PlaceRepository $placeRepository,
-        AddPlaceCommand $command
-    )
-    {
-        $command->getName()->willReturn('Paraninfo')->shouldBeCalled();
-        $command->getDescription()->willReturn(null)->shouldBeCalled();
-
-        $place = new Place();
-        $place->setName('Paraninfo');
-
-        $placeRepository->add($place)->shouldBeCalled();
-
-        $this($command)->shouldBeLike($place);
-    }
-}
