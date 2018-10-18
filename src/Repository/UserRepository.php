@@ -19,6 +19,20 @@ class UserRepository extends ServiceEntityRepository
         parent::__construct($registry, User::class);
     }
 
+    public function add(User $user): void
+    {
+        $this->_em->persist($user);
+    }
+
+    /**
+     * @param ArrivalZone $arrivalZone
+     * @throws \Doctrine\ORM\ORMException
+     */
+    public function remove(User $user): void
+    {
+        $this->_em->remove($user);
+    }
+
 //    /**
 //     * @return User[] Returns an array of User objects
 //     */

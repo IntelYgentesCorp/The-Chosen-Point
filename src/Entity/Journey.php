@@ -51,6 +51,12 @@ class Journey
      */
     private $requests;
 
+    /**
+     * @ORM\Version()
+     * @ORM\Column(type="integer")
+     */
+    private $version;
+
     public function __construct()
     {
         $this->requests = new ArrayCollection();

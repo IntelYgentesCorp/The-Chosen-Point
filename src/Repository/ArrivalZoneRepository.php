@@ -20,11 +20,19 @@ class ArrivalZoneRepository extends ServiceEntityRepository
     }
 
 
+    /**
+     * @param ArrivalZone $arrivalZone
+     * @throws \Doctrine\ORM\ORMException
+     */
     public function add(ArrivalZone $arrivalZone): void
     {
         $this->_em->persist($arrivalZone);
     }
 
+    /**
+     * @param ArrivalZone $arrivalZone
+     * @throws \Doctrine\ORM\ORMException
+     */
     public function remove(ArrivalZone $arrivalZone): void
     {
         $this->_em->remove($arrivalZone);

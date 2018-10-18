@@ -28,6 +28,12 @@ class User
      */
     private $requests;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+
+    private $plate;
+
     public function __construct()
     {
         $this->journeys = new ArrayCollection();
@@ -38,7 +44,7 @@ class User
     {
         return $this->id;
     }
-
+ 
     /**
      * @return Collection|Journey[]
      */
@@ -97,6 +103,18 @@ class User
                 $request->setUser(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getPlate(): ?string
+    {
+        return $this->plate;
+    }
+
+    public function setPlate(?string $plate): self
+    {
+        $this->plate = $plate;
 
         return $this;
     }

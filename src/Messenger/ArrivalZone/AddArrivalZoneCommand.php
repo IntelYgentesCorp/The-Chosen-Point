@@ -21,6 +21,11 @@ class AddArrivalZoneCommand
      */
     private $description;
 
+    /**
+     * AddArrivalZoneCommand constructor.
+     * @param string $name
+     * @param null|string $description
+     */
     public function __construct(string $name, ?string $description)
     {
         $this->name = $name;

@@ -23,6 +23,7 @@ use PhpSpec\ObjectBehavior;
         /**
          * @param ArrivalZoneRepository|\PhpSpec\Wrapper\Collaborator $arrivalZoneRepository
          * @param AddArrivalZoneCommand|\PhpSpec\Wrapper\Collaborator $command
+         * @throws \Doctrine\ORM\ORMException
          */
 
         function it_saves_a_new_arrival_zone(ArrivalZoneRepository $arrivalZoneRepository,

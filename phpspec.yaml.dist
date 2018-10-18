@@ -3,4 +3,4 @@ suites:
         namespace: App
         psr4_prefix: App
 
-formatter.name: dot
+formatter.name: pretty
