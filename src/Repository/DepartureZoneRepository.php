@@ -19,6 +19,17 @@ class DepartureZoneRepository extends ServiceEntityRepository
         parent::__construct($registry, DepartureZone::class);
     }
 
+
+    public function add(DepartureZone $departureZone): void
+    {
+        $this->_em->persist($departureZone);
+    }
+
+    public function remove(DepartureZone $departureZone): void
+    {
+        $this->_em->remove($departureZone);
+    }
+
 //    /**
 //     * @return DepartureZone[] Returns an array of DepartureZone objects
 //     */
