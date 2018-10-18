@@ -25,7 +25,7 @@
         "symfony/yaml": "*"
     },
     "require-dev": {
-        "phpspec/phpspec": "^5.0",
+        "phpspec/phpspec": "^4.3",
         "symfony/debug-pack": "*",
         "symfony/dotenv": "*",
         "symfony/maker-bundle": "^1.0",
