@@ -19,6 +19,24 @@ class JourneyRepository extends ServiceEntityRepository
         parent::__construct($registry, Journey::class);
     }
 
+    /**
+     * @param Journey $journey
+     * @throws \Doctrine\ORM\ORMException
+     */
+    public function add(Journey $journey): void
+    {
+        $this->_em->persist($journey);
+    }
+
+    /**
+     * @param Journey $journey
+     * @throws \Doctrine\ORM\ORMException
+     */
+    public function remove(Journey $journey): void
+    {
+        $this->_em->remove($journey);
+    }
+
 //    /**
 //     * @return Journey[] Returns an array of Journey objects
 //     */
