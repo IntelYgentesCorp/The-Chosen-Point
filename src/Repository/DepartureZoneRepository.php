@@ -1,5 +1,13 @@
 <?php
 
+/*
+ * This file is part of the Symfony package.
+ *
+ * (c) Javi y Alex  The Chosen Point
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace App\Repository;
 
 use App\Entity\DepartureZone;
@@ -18,7 +26,6 @@ class DepartureZoneRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, DepartureZone::class);
     }
-
 
     public function add(DepartureZone $departureZone): void
     {

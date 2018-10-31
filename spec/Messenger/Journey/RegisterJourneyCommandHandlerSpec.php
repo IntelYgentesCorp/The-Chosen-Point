@@ -1,5 +1,13 @@
 <?php
 
+/*
+ * This file is part of the Symfony package.
+ *
+ * (c) Javi y Alex  The Chosen Point
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace spec\App\Messenger\Journey;
 
 use App\Entity\ArrivalZone;
@@ -7,7 +15,6 @@ use App\Entity\DepartureZone;
 use App\Entity\Journey;
 use App\Entity\User;
 use App\Messenger\Journey\RegisterJourneyCommand;
-use App\Messenger\Journey\RegisterJourneyCommandHandler;
 use App\Repository\ArrivalZoneRepository;
 use App\Repository\DepartureZoneRepository;
 use App\Repository\JourneyRepository;
@@ -17,16 +24,15 @@ use Prophecy\Argument;
 
 class RegisterJourneyCommandHandlerSpec extends ObjectBehavior
 {
-    public function let(JourneyRepository $journeyRepository , DepartureZoneRepository $departureZoneRepository , ArrivalZoneRepository $arrivalZoneRepository , UserRepository $userRepository)
+    public function let(JourneyRepository $journeyRepository, DepartureZoneRepository $departureZoneRepository, ArrivalZoneRepository $arrivalZoneRepository, UserRepository $userRepository)
     {
-        $this->beConstructedWith($journeyRepository , $departureZoneRepository , $arrivalZoneRepository , $userRepository);
-
+        $this->beConstructedWith($journeyRepository, $departureZoneRepository, $arrivalZoneRepository, $userRepository);
     }
 
-    function it_save_new_journey(JourneyRepository $journeyRepository, RegisterJourneyCommand $command
+    public function it_save_new_journey(JourneyRepository $journeyRepository, RegisterJourneyCommand $command
                                  , \DateTime $dateTime , ArrivalZoneRepository $arrivalZoneRepository ,
-                                 DepartureZoneRepository $departureZoneRepository , ArrivalZone $arrivalZone ,
-                                   DepartureZone $departureZone  , UserRepository $userRepository , User $user)
+                                 DepartureZoneRepository $departureZoneRepository , ArrivalZone $arrivalZone,
+                                   DepartureZone $departureZone, UserRepository $userRepository, User $user)
     {
         $command->getArrivalZoneId()->willReturn(3)->shouldBeCalled();
         $command->getDepartureTime()->willReturn($dateTime)->shouldBeCalled();
@@ -42,7 +48,4 @@ class RegisterJourneyCommandHandlerSpec extends ObjectBehavior
 
         $this($command);
     }
-
-
-
 }

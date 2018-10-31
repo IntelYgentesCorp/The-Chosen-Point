@@ -1,5 +1,13 @@
 <?php
 
+/*
+ * This file is part of the Symfony package.
+ *
+ * (c) Javi y Alex  The Chosen Point
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace App\Messenger\Journey;
 
 use App\Entity\Journey;
@@ -29,15 +37,10 @@ class RegisterJourneyCommandHandler
 
     /**
      * RegisterJourneyCommandHandler constructor.
-     * @param JourneyRepository $journeyRepository
-     * @param DepartureZoneRepository $departureZoneRepository
-     * @param ArrivalZoneRepository $arrivalZoneRepository
-     * @param UserRepository $userRepository
      */
-    public function __construct(JourneyRepository $journeyRepository , DepartureZoneRepository $departureZoneRepository ,
-                                ArrivalZoneRepository $arrivalZoneRepository , UserRepository $userRepository)
+    public function __construct(JourneyRepository $journeyRepository , DepartureZoneRepository $departureZoneRepository,
+                                ArrivalZoneRepository $arrivalZoneRepository, UserRepository $userRepository)
     {
-
         $this->journeyRepository = $journeyRepository;
         $this->departureZoneRepository = $departureZoneRepository;
         $this->arrivalZoneRepository = $arrivalZoneRepository;
@@ -64,6 +67,5 @@ class RegisterJourneyCommandHandler
         $this->journeyRepository->add($journey);
 
         return $journey;
-
     }
 }
