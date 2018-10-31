@@ -1,14 +1,14 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Javier
- * Date: 08/10/2018
- * Time: 08:57
+
+/*
+ * This file is part of the Symfony package.
+ *
+ * (c) Javi y Alex  The Chosen Point
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
  */
 
 namespace App\Messenger\ArrivalZone;
-
-
 
 class AddArrivalZoneCommand
 {
@@ -23,8 +23,6 @@ class AddArrivalZoneCommand
 
     /**
      * AddArrivalZoneCommand constructor.
-     * @param string $name
-     * @param null|string $description
      */
     public function __construct(string $name, ?string $description)
     {
@@ -32,22 +30,13 @@ class AddArrivalZoneCommand
         $this->description = $description;
     }
 
-    /**
-     * @return string
-     */
     public function getName(): string
     {
         return $this->name;
     }
 
-    /**
-     * @return null|string
-     */
     public function getDescription(): ?string
     {
         return $this->description;
     }
-
-
-
 }

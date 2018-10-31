@@ -1,18 +1,17 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Javier
- * Date: 25/10/2018
- * Time: 17:00
+
+/*
+ * This file is part of the Symfony package.
+ *
+ * (c) Javi y Alex  The Chosen Point
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
  */
 
 namespace App\Messenger\Journey;
 
-
 class RegisterJourneyCommand
 {
-
-
     /**
      * @var int
      */
@@ -34,9 +33,8 @@ class RegisterJourneyCommand
      */
     private $departureTime;
 
-    public function __construct(int $userId , int $departureZoneId , int $arrivalZoneId , int $seat , \DateTime $departureTime)
+    public function __construct(int $userId, int $departureZoneId, int $arrivalZoneId, int $seat, \DateTime $departureTime)
     {
-
         $this->userId = $userId;
         $this->departureZoneId = $departureZoneId;
         $this->arrivalZoneId = $arrivalZoneId;
@@ -44,44 +42,28 @@ class RegisterJourneyCommand
         $this->departureTime = $departureTime;
     }
 
-    /**
-     * @return int
-     */
     public function getUserId(): int
     {
         return $this->userId;
     }
 
-    /**
-     * @return int
-     */
     public function getDepartureZoneId(): int
     {
         return $this->departureZoneId;
     }
 
-    /**
-     * @return int
-     */
     public function getArrivalZoneId(): int
     {
         return $this->arrivalZoneId;
     }
 
-    /**
-     * @return int
-     */
     public function getSeat(): int
     {
         return $this->seat;
     }
 
-    /**
-     * @return \DateTime
-     */
     public function getDepartureTime(): \DateTime
     {
         return $this->departureTime;
     }
-
 }
