@@ -1,13 +1,19 @@
 <?php
 
+/*
+ * This file is part of the Symfony package.
+ *
+ * (c) Javi y Alex  The Chosen Point
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace spec\App\Messenger\User;
 
 use App\Entity\User;
 use App\Messenger\User\RegisterNewCarCommand;
-use App\Messenger\User\RegisterNewCarCommandHandler;
 use App\Repository\UserRepository;
 use PhpSpec\ObjectBehavior;
-use Prophecy\Argument;
 
 class RegisterNewCarCommandHandlerSpec extends ObjectBehavior
 {
@@ -19,8 +25,8 @@ class RegisterNewCarCommandHandlerSpec extends ObjectBehavior
         $this->beConstructedWith($userRepository);
     }
 
-    function it_save_new_car(UserRepository $userRepository,RegisterNewCarCommand $command , User $user){
-
+    public function it_save_new_car(UserRepository $userRepository, RegisterNewCarCommand $command, User $user)
+    {
         $command->getUserId()->willReturn(3)->shouldBeCalled();
         $command->getPlate()->willReturn('6082AKH')->shouldBeCalled();
 
@@ -28,10 +34,9 @@ class RegisterNewCarCommandHandlerSpec extends ObjectBehavior
         $user->setPlate('6082AKH')->shouldBeCalled();
 
         $this($command);
-
     }
 
-    public function it_throw_exception_if_user_not_found(UserRepository $userRepository,RegisterNewCarCommand $command)
+    public function it_throw_exception_if_user_not_found(UserRepository $userRepository, RegisterNewCarCommand $command)
     {
         $command->getUserId()->willReturn(3)->shouldBeCalled();
 

@@ -1,13 +1,14 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: alexariza
- * Date: 10/25/18
- * Time: 5:21 PM
+
+/*
+ * This file is part of the Symfony package.
+ *
+ * (c) Javi y Alex  The Chosen Point
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
  */
 
 namespace App\Messenger\User;
-
 
 class ChooseArriveZoneCommand
 {
@@ -21,9 +22,6 @@ class ChooseArriveZoneCommand
         $this->arrivalZoneId = $arrivalZoneId;
     }
 
-    /**
-     * @return int
-     */
     public function getArrivalZoneId(): int
     {
         return $this->arrivalZoneId;

@@ -1,5 +1,13 @@
 <?php
 
+/*
+ * This file is part of the Symfony package.
+ *
+ * (c) Javi y Alex  The Chosen Point
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace App\Repository;
 
 use App\Entity\ArrivalZone;
@@ -19,9 +27,7 @@ class ArrivalZoneRepository extends ServiceEntityRepository
         parent::__construct($registry, ArrivalZone::class);
     }
 
-
     /**
-     * @param ArrivalZone $arrivalZone
      * @throws \Doctrine\ORM\ORMException
      */
     public function add(ArrivalZone $arrivalZone): void
@@ -30,13 +36,13 @@ class ArrivalZoneRepository extends ServiceEntityRepository
     }
 
     /**
-     * @param ArrivalZone $arrivalZone
      * @throws \Doctrine\ORM\ORMException
      */
     public function remove(ArrivalZone $arrivalZone): void
     {
         $this->_em->remove($arrivalZone);
     }
+
 //    /**
 //     * @return ArrivalZone[] Returns an array of ArrivalZone objects
 //     */
