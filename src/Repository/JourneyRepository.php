@@ -41,7 +41,9 @@ class JourneyRepository extends ServiceEntityRepository
     public function remove(Journey $journey): void
     {
         $this->_em->remove($journey);
+
     }
+
 
 //    /**
 //     * @return Journey[] Returns an array of Journey objects

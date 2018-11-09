@@ -27,6 +27,17 @@ class RequestRepository extends ServiceEntityRepository
         parent::__construct($registry, Request::class);
     }
 
+    public function add(Request $request): void
+    {
+        $this->_em->persist($request);
+    }
+
+
+    public function remove(Request $request): void
+    {
+        $this->_em->remove($request);
+    }
+
 //    /**
 //     * @return Request[] Returns an array of Request objects
 //     */
