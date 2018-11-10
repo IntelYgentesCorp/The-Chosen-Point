@@ -23,17 +23,17 @@ class SelectCarCommandHandler
     {
         $journey=$command->getJourney();
         $user=$command->getUser();
-        $CreateTime=$command->getDateTime();
 
-        $request= new Request();
+
+        $request = $this->requestRepository->newInstance();
 
         $request->setUser($user);
         $request->setJourney($journey);
-        $request->setCreatedAt($CreateTime);
+
 
         $this->requestRepository->add($request);
 
-        return($request);
+        return $request;
 
 
     }
