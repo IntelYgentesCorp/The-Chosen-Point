@@ -13,42 +13,20 @@ use App\Entity\Journey;
 
 class ConfirmTravelCommand
 {
-    /**
-     * @var \DateTime
-     */
-    private $time;
-    /**
-     * @var Journey
-     */
-    private $journey;
+
+
     /**
      * @var int
      */
     private $idRequest;
 
-    public function __construct(int $idRepository,\DateTime $time , Journey $journey)
+    public function __construct(int $idRepository)
     {
 
-        $this->time = $time;
-        $this->journey = $journey;
+
         $this->idRequest = $idRepository;
     }
 
-    /**
-     * @return \DateTime
-     */
-    public function getTime(): \DateTime
-    {
-        return $this->time;
-    }
-
-    /**
-     * @return Journey
-     */
-    public function getJourney(): Journey
-    {
-        return $this->journey;
-    }
 
     /**
      * @return int

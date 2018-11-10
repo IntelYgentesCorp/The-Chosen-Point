@@ -19,23 +19,22 @@ class ConfirmTravelCommandHandlerSpec extends ObjectBehavior
     }
 
     public function it_confirm_travel(RequestRepository $requestRepository , ConfirmTravelCommand $command,
-                                        \DateTime $dateTime , Request $request , Journey $journey)
+                                        Request $request , Journey $journey )
     {
 
         $command->getIdRequest()->willReturn(4)->shouldBeCalled();
-        $command->getTime()->willReturn($dateTime)->shouldBeCalled();
-        $command->getJourney()->willReturn($journey)->shouldBeCalled();
-        $journey->getSeats()->willReturn(3)->shouldBeCalled();
 
         $requestRepository->find(4)->willReturn($request)->shouldBeCalled();
 
-        $request->setIsAccepted(True);
-        $request->setAcceptedAt($dateTime);
-        $journeyRequest = $request->getJourney();
-        $journeyRequest->setSeats(3-1);
+        $request->accept()->shouldBeCalled();
+
+        $request->getJourney()->willReturn($journey)->shouldBeCalled();
+        $journey->getSeats()->willReturn(3)->shouldBeCalled();
+
+        $journey->setSeats(3-1)->shouldBeCalled();
 
 
-        $this($command)->ShouldBeLike($request);
+        $this($command)->shouldBeLike($request);
 
 
     }

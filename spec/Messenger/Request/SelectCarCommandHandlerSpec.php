@@ -19,20 +19,19 @@ class SelectCarCommandHandlerSpec extends ObjectBehavior
 
     }
 
-    public function its_select_car(User $user , RequestRepository $requestRepository , SelectCarCommand $command
-                                    ,\DateTime $dateTime , Journey $journey){
+    public function its_select_car(User $user , RequestRepository $requestRepository , Request $request ,
+                                   SelectCarCommand $command
+                                    , Journey $journey){
 
 
-        $command->getDateTime()->willReturn($dateTime)->shouldBeCalled();
+
         $command->getUser()->willReturn($user)->shouldBeCalled();
         $command->getJourney()->willReturn($journey)->shouldBeCalled();
 
-        $request=new Request();
+        $requestRepository->newInstance()->willReturn($request)->shouldBeCalled();
 
-        $request->setCreatedAt($dateTime);
-        $request->setUser($user);
-        $request->setJourney($journey);
-        $request->setIsAccepted(false);
+        $request->setUser($user)->shouldBeCalled();
+        $request->setJourney($journey)->shouldBeCalled();
 
         $requestRepository->add($request)->shouldBeCalled();
 

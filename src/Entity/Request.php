@@ -51,6 +51,12 @@ class Request
      */
     private $journey;
 
+    public function __construct()
+    {
+        $this->createdAT = new \DateTime();
+        $this->isAccepted =false;
+    }
+
     public function getId(): ?int
     {
         return $this->id;
@@ -115,4 +121,11 @@ class Request
 
         return $this;
     }
+
+    public function accept(){
+        $time = new \DateTime();
+        $this->setIsAccepted(true);
+        $this->setAcceptedAt($time);
+    }
+
 }

@@ -25,16 +25,15 @@ class SelectCarCommandHandler
         $user=$command->getUser();
 
 
-        $request= new Request();
+        $request = $this->requestRepository->newInstance();
 
         $request->setUser($user);
         $request->setJourney($journey);
-        $request->setCreatedAt($command->getDateTime());
-        $request->setIsAccepted(false);
+
 
         $this->requestRepository->add($request);
 
-        return($request);
+        return $request;
 
 
     }

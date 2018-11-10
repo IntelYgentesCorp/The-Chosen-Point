@@ -20,16 +20,17 @@ class ConfirmTravelCommandHandler
     public function __invoke(ConfirmTravelCommand $command)
     {
         $idRequest= $command->getIdRequest();
-        $journey = $command->getJourney();
-        $seats = $journey->getSeats();
-        $time = $command->getTime();
+
+
 
         $request = $this->requestRepository->find($idRequest);
 
-        $request->setAcceptedAt($time);
-        $journeyRequest=$request->getJourney();
-        $journeyRequest->setSeats($seats - 1);
-        $request->setIsAccepted(true);
+        $request->accept();
+
+        $journey = $request->getJourney();
+        $seats = $journey->getSeats();
+        $journey->setSeats($seats - 1);
+
 
         return($request);
 

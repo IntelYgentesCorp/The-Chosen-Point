@@ -38,6 +38,10 @@ class RequestRepository extends ServiceEntityRepository
         $this->_em->remove($request);
     }
 
+    public function newInstance()
+    {
+        return new Request();
+    }
 //    /**
 //     * @return Request[] Returns an array of Request objects
 //     */
