@@ -20,7 +20,7 @@ class SelectCarCommandHandlerSpec extends ObjectBehavior
     }
 
     public function its_select_car(User $user , RequestRepository $requestRepository , SelectCarCommand $command
-                                    ,\DateTimeInterface $dateTime , Journey $journey){
+                                    ,\DateTime $dateTime , Journey $journey){
 
 
         $command->getDateTime()->willReturn($dateTime)->shouldBeCalled();
@@ -32,6 +32,7 @@ class SelectCarCommandHandlerSpec extends ObjectBehavior
         $request->setCreatedAt($dateTime);
         $request->setUser($user);
         $request->setJourney($journey);
+        $request->setIsAccepted(false);
 
         $requestRepository->add($request)->shouldBeCalled();
 
