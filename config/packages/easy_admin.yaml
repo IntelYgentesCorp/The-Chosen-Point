@@ -6,4 +6,4 @@ easy_admin:
         - App\Entity\Journey
         - App\Entity\Request
         - App\Entity\User
-    site_name: 'ACME <em style="font-size: 80%;">Admin ElPunto</em>'
+    site_name: '<em style="font-size: 80%;">Admin ElPunto</em>'
