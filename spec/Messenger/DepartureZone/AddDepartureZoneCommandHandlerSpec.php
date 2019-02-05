@@ -43,4 +43,10 @@ class AddDepartureZoneCommandHandlerSpec extends ObjectBehavior
 
         $this($command)->shouldBeLike($departureZone);
     }
+
+   /* public function it_throw_exception_if_departure_zone_name_exist(DepartureZoneRepository $departureZoneRepository , AddDepartureZoneCommand $command){
+        $command->getName()->willReturn('El Punto')->shouldBeCalled();
+
+        $departureZoneRepository->findOneBy($name , )
+}*/
 }

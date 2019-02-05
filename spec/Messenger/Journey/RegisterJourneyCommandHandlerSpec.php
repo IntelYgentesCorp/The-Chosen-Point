@@ -48,4 +48,6 @@ class RegisterJourneyCommandHandlerSpec extends ObjectBehavior
 
         $this($command);
     }
+
+
 }

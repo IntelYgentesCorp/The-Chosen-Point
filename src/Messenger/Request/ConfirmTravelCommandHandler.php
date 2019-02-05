@@ -21,9 +21,11 @@ class ConfirmTravelCommandHandler
     {
         $idRequest= $command->getIdRequest();
 
-
-
         $request = $this->requestRepository->find($idRequest);
+
+        if(!$request){
+            throw new \RuntimeException();
+        }
 
         $request->accept();
 
