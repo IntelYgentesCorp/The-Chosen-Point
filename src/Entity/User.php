@@ -18,6 +18,7 @@ use ApiPlatform\Core\Annotation\ApiResource;
 /**
  * @ApiResource
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
+ * @ORM\Table(name="sfuser")
  */
 class User
 {

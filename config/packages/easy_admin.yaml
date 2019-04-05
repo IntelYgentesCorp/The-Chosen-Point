@@ -1,9 +1,18 @@
 easy_admin:
     entities:
         # List the entity class name you want to manage
-        - App\Entity\ArrivalZone
-        - App\Entity\DepartureZone
-        - App\Entity\Journey
-        - App\Entity\Request
-        - App\Entity\User
+        ArrivalZone:
+            class: App\Entity\ArrivalZone
+        DepartureZone:
+            class: App\Entity\DepartureZone
+        Journey:
+            class: App\Entity\Journey
+            list:
+                action: ['-new']
+        Request:
+            class: App\Entity\Request
+            list:
+                actions: ['-new']
+        User:
+            class: App\Entity\User
     site_name: '<em style="font-size: 80%;">Admin ElPunto</em>'
